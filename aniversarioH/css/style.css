@@ -1,0 +1,214 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #25252b;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 20%;
+    /* left: 50px;*/
+    animation: Bounce 4s ease infinite forwards;
+
+}
+
+.container.active {
+    animation: Vibration 1s ease forwards;
+
+}
+
+@keyframes Vibration {
+
+    0%,
+    100% {
+        transform: scale(1, 1);
+        /* A caixa está levantada no início e no final da animação */
+    }
+
+    25% {
+        transform: scale(.95, 1.05);
+        /* A caixa retorna à sua posição original no meio da animação */
+    }
+
+    50% {
+        transform: scale(1.1, .9);
+        /* A caixa está levantada no início e no final da animação */
+    }
+
+    70% {
+        transform: scale(.9, 1.1);
+        /* A caixa retorna à sua posição original no meio da animação */
+    }
+}
+
+.container .box {
+    position: absolute;
+    height: 200px;
+    width: 300px;
+    background: white;
+    transform: translateY(-20px);
+
+
+}
+
+@keyframes Bounce {
+
+    0%,
+    100% {
+        transform: translateY(-24px);
+        /* A caixa está levantada no início e no final da animação */
+    }
+
+    50% {
+        transform: translateY(0px);
+        /* A caixa retorna à sua posição original no meio da animação */
+    }
+
+}
+
+.box.active {
+    animation: none;
+
+}
+
+.container .box::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 200px;
+    background: #00cfff;
+    left: 122px;
+
+}
+
+.box::after {
+    content: '';
+    position: absolute;
+    box-shadow: inset 0 10px rgba(0, 0, 0, .3);
+    width: 300px;
+    height: 200px;
+
+}
+
+.click {
+    position: absolute;
+    background: white;
+    width: 350px;
+    height: 90px;
+    top: -70px;
+    left: -25px;
+    cursor: pointer;
+    z-index: 1;
+    transition: .5s ease;
+}
+
+.click.active {
+
+    transform: delay 3s;
+    transform: translateY(-240px);
+
+}
+
+
+.click::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 90px;
+    background: #00cfff;
+    left: 147px;
+}
+
+.click::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 0;
+    border-bottom: 60px solid #00cfff;
+    border-top: 60px solid #00cfff;
+    border-left: 0px solid transparent;
+    border-right: 60px solid transparent;
+    transform: rotate(-90deg);
+    top: -93px;
+    left: 145px;
+    z-index: 3;
+}
+
+.container .shadow {
+    content: '';
+    position: relative;
+    width: 340px;
+    height: 40px;
+    border-radius: 50%;
+    top: 100px;
+    left: -4px;
+    animation: BounceOut 4s ease infinite forwards;
+
+}
+
+.container .shadow.active {
+    animation: none;
+}
+
+@keyframes BounceOut {
+
+    0%,
+    100% {
+        transform: translateY(-24px);
+        /* A caixa está levantada no início e no final da animação */
+        scale: .7;
+    }
+
+    50% {
+        transform: translateY(0px);
+        /* A caixa retorna à sua posição original no meio da animação */
+        scale: 1;
+    }
+
+}
+
+.container .texto{
+    position: absolute;
+    width: 200px;
+    z-index: -1;
+    scale: 0
+    /*background: white;
+    padding: 20px;
+    left: 40px;
+    font-size: 20px;
+    color: #00cfff;
+    border-radius: 20px;
+    scale: 0;
+    transition: .3s ease;
+    transition-delay: 1.1s;
+    z-index: -1;*/
+}
+
+.texto.active {
+    scale: 1;
+    transform: translateY(-240px);
+
+}
+
+.texto.active2 {
+    top: 0;
+    transition-delay: .1s;
+}
+
+@keyframes BounceText {
+
+    0%,
+    100% {
+        transform: translateY(-240px);
+        /* A caixa está levantada no início e no final da animação */
+    }
+
+    50% {
+        transform: translateY(-190px);
+        /* A caixa retorna à sua posição original no meio da animação */
+    }
+
+}
